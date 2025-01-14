@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg vh-100">
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Welcome, The blog Project</h1>
+          <p class="lead">Create infinte number of BLogs and admire them here and share them with your friends!!
+            <br>
+            Reminder: Only store blogs when the server is still on.
+          </p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+            <a href="/create">
+              <button type="submit" formaction="/create" class="btn btn btn-light btn-lg px-4">Create +</button>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+            <img class="rounded-lg-3" src="bootstrap-docs.png" alt="" width="720">
+        </div>
+      </div>
+    <% if(locals.blogs) { %>
+      <% for(var i=0;i<blogs.length;i++) { %>
+      <div class=" pt-5 px-5 pb-1 rounded shadow-lg">
+        <div class="col-sm-8 pt-5 mx-auto">
+          <h1 class="display-5 fw-normal"> <%= blogs[i].title %> </h1>
+          <p class="fs-5"> <%= blogs[i].text %></p>
+          <p class="pt-03"><%= blogs[i].author %> </p>
+      </div>
+      </div>
+      <% } }%>
+
+
+</body>
+<%- include("partials/footer.ejs") %>
